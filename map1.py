@@ -21,7 +21,7 @@ map = folium.Map(location=[40.73, -114.07], zoom_start=6)
 fgp = folium.FeatureGroup(name="Population")
 
 fgp.add_child(folium.GeoJson(data=open('world.json', 'r', encoding='utf-8-sig').read(),
-style_function=lambda x: {'fillColor':'green' if x['properties']['POP2005'] < 10000000 else 'orange' if 10000000 <= x['properties']['POP2005'] < 100000000 else 'red'}))
+style_function=lambda x: {'fillColor':'green' if x['properties']['POP2005'] < 10000000 else 'yellow' if 10000000 <= x['properties']['POP2005'] < 100000000 else 'orange'}))
 
 fgv = folium.FeatureGroup(name="Volcanoes")
 for lt, ln, nm, el in zip(lat, lon, name, elev):
