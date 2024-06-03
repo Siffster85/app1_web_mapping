@@ -23,6 +23,7 @@ fg = folium.FeatureGroup(name="Test Map")
 for lt, ln, nm, el in zip(lat, lon, name, elev):
     fg.add_child(folium.CircleMarker(location=[lt, ln], radius=7, popup=nm + " volcano elevation stands at " + str(el) + " metres above sea level.", fill_color=colour_set(el), color='black', fill_opacity=0.8))
 
-map.add_child(fg)
+fg.add_child(folium.GeoJson(data=(open('world.json', 'r', encoding='utf-8-sig').read())))
 
+map.add_child(fg)
 map.save("Map1.html")
